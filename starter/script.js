@@ -232,24 +232,63 @@ btnSort.addEventListener('click', function(e) {
 /////////////////////////////////////////////////
 // LECTURES
 
+// Working with BigInt
+
+console.log(2 ** 53 - 1)
+console.log(Number.MAX_SAFE_INTEGER)
+console.log(2 ** 53 + 1)
+console.log(2 ** 53 + 2)
+console.log(2 ** 53 + 3)
+console.log(2 ** 53 + 4)
+
+// n transforms a regular number into a BigInt number
+console.log(234907543907543223143264675n)
+// or by using BigInt function
+console.log(BigInt(234907543907543223143264675))
+
+// Operations
+console.log(10000n + 10000n)
+console.log(321475438285748392n * 1000000000n)
+// console.log(Math.sqrt(16n))
+
+// can't mix BigInt with regular numbers
+const huge = 3253436548972128374n
+const num = 23
+// console.log(huge * num)
+console.log(huge * BigInt(num))
+
+// Exceptions
+console.log(20n > 15)
+console.log(20n === 20)
+console.log(typeof 20n)
+console.log(20n == 20)
+console.log(20n == '20')
+
+console.log(huge + ' is REALLY big')
+
+// Divisions
+console.log(11n / 3n)
+console.log(10n / 3n)
+console.log(10 / 3)
+
 // Numeric Separators
 
-// 287,460,000,000
-const diameter = 287_460_000_000
-console.log(diameter)
+// // 287,460,000,000
+// const diameter = 287_460_000_000
+// console.log(diameter)
 
-const price = 345_99
-console.log(price)
+// const price = 345_99
+// console.log(price)
 
-const transferFee1 = 15_00
-const transferFee2 = 1_500
+// const transferFee1 = 15_00
+// const transferFee2 = 1_500
 
-// numeric separators much be between numbers
-const PI = 3.1415
-console.log(PI)
+// // numeric separators much be between numbers
+// const PI = 3.1415
+// console.log(PI)
 
-console.log(Number('230_000'))
-console.log(Number('230000'))
+// console.log(Number('230_000'))
+// console.log(parseInt('230_000'))
 
 
 // The remainder operator
