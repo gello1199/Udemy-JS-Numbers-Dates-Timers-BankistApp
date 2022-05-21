@@ -84,10 +84,10 @@ const inputClosePin = document.querySelector('.form__input--pin');
 const formatMovementDate = function(date) {
   const calcDaysPassed = (date1, date2) => 
   Math.round(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24))
-  console.log(date)
+  // console.log(date)
 
   const daysPassed = calcDaysPassed(new Date(), date)
-  console.log(daysPassed)
+  // console.log(daysPassed)
 
   if(daysPassed === 0) return 'Today'
   if(daysPassed === 1) return 'Yesterday'
@@ -177,9 +177,6 @@ currentAccount = account1
 updateUI(currentAccount)
 containerApp.style.opacity = 100
 
-
-// day/month/year
-
 btnLogin.addEventListener('click', function(e) {
   e.preventDefault()
  
@@ -194,13 +191,26 @@ btnLogin.addEventListener('click', function(e) {
 
     // Create current date and time
     const now = new Date()
-    const day = `${now.getDate()}`.padStart(2, 0)
-    const month = `${now.getMonth() + 1}`.padStart(2, 0)
-    const year = now.getFullYear()
-    const hour = `${now.getHours()}`.padStart(2, 0)
-    const min = `${now.getMinutes()}`.padStart(2, 0  )
+    const options = {
+      hour: 'numeric',
+      minute: 'numeric',
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+      weekday: 'long'
+    }
+    // const locale = navigator.language
+    // console.log(locale)
+    
+    labelDate.textContent = new Intl.DateTimeFormat(currentAccount.locale, options).format(now)
 
-    labelDate.textContent = `${month}/${day}/${year}, ${hour}:${min}`
+    // const day = `${now.getDate()}`.padStart(2, 0)
+    // const month = `${now.getMonth() + 1}`.padStart(2, 0)
+    // const year = now.getFullYear()
+    // const hour = `${now.getHours()}`.padStart(2, 0)
+    // const min = `${now.getMinutes()}`.padStart(2, 0  )
+
+    // labelDate.textContent = `${month}/${day}/${year}, ${hour}:${min}`
 
 
     // Clear input fields 
@@ -281,17 +291,21 @@ btnSort.addEventListener('click', function(e) {
 /////////////////////////////////////////////////
 // LECTURES
 
+// Internationalizing Dates (Intl)
+
+
+
 // Operations with Dates
 
-const future = new Date(2037, 10, 19, 15, 23)
-console.log(future)
-console.log(+future)
-console.log(Number(future))
+// const future = new Date(2037, 10, 19, 15, 23)
+// console.log(future)
+// console.log(+future)
+// console.log(Number(future))
 
-const calcDaysPassed = (date1, date2) => Math.abs(date2 - date1) / (1000 * 60 * 60 * 24) 
+// const calcDaysPassed = (date1, date2) => Math.abs(date2 - date1) / (1000 * 60 * 60 * 24) 
 
-const days1 = calcDaysPassed(new Date(2037, 3, 4), new Date(2037, 3, 14))
-console.log(days1)
+// const days1 = calcDaysPassed(new Date(2037, 3, 4), new Date(2037, 3, 14))
+// console.log(days1)
 
 
 // Creating Dates
