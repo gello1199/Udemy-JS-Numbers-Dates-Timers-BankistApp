@@ -112,11 +112,16 @@ const displayMovements = function(acc, sort = false) {
     const date = new Date(acc.movementsDates[i])
     const displayDate = formatMovementDate(date, acc.locale)
 
+    const formattedMovement = new Intl.NumberFormat(acc.locale, {
+      style: 'currency',
+      currency: 'USD'
+    }).format(mov)
+
     const html = `
       <div class="movements__row">
         <div class="movements__type movements__type--${type}">${i + 1} ${type}</div>
         <div class="movements__date">${displayDate}</div>
-        <div class="movements__value">${mov.toFixed(2)} €</div>
+        <div class="movements__value">${formattedMovement}</div>
       </div>
     `
     containerMovements.insertAdjacentHTML('afterbegin', html)
@@ -297,12 +302,15 @@ btnSort.addEventListener('click', function(e) {
 const num = 23587543289.23
 
 const options = {
-  
+  style: 'currency',
+  unit: 'celsius',
+  currency: 'EUR',
+  // useGrouping: false
 }
 
-console.log('US:' , new Intl.NumberFormat('en-US').format(num))
-console.log('Germany:' , new Intl.NumberFormat('de-DE').format(num))
-console.log(navigator.language , new Intl.NumberFormat(navigator.language).format(num))
+console.log('US:' , new Intl.NumberFormat('en-US', options).format(num))
+console.log('Germany:' , new Intl.NumberFormat('de-DE', options).format(num))
+console.log(navigator.language , new Intl.NumberFormat(navigator.language, options).format(num))
 
 // Operations with Dates
 
