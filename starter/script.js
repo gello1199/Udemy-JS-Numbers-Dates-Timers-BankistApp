@@ -259,7 +259,7 @@ btnLoan.addEventListener('click', function(e) {
   const amount = Math.floor(inputLoanAmount.value)
 
   if(amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
-    // Add movement
+    setTimeout(function() {// Add movement
     currentAccount.movements.push(amount)
 
      // Add loan date
@@ -267,6 +267,7 @@ btnLoan.addEventListener('click', function(e) {
 
     // Update UI
     updateUI(currentAccount)
+  }, 2500)
   }
   inputLoanAmount.value = ''
 })
@@ -303,8 +304,22 @@ btnSort.addEventListener('click', function(e) {
 
 // Timers: setTimeout and setInterval
 
-setTimeout((ing1, ing2) => console.log(`here is your pizza with ${ing1} and ${ing2}`), 5000, 'olives', 'spinach')
+//setTimeout 
+const ingredients = ['olives', 'spinach']
+const pizzaTimer = setTimeout((ing1, ing2) => console.log(`here is your pizza with ${ing1} and ${ing2}`), 
+3000, 
+...ingredients
+)
 console.log('Waiting...')
+
+if(ingredients.includes('spinach')) clearTimeout(pizzaTimer)
+
+//setInterval
+setInterval(function() {
+  const now = new Date()
+  // console.log(now)
+}, 1000) 
+
 
 // Internationalizing Numbers (Intl)
 
