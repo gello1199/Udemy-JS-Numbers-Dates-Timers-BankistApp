@@ -305,20 +305,20 @@ btnSort.addEventListener('click', function(e) {
 // Timers: setTimeout and setInterval
 
 //setTimeout 
-const ingredients = ['olives', 'spinach']
-const pizzaTimer = setTimeout((ing1, ing2) => console.log(`here is your pizza with ${ing1} and ${ing2}`), 
-3000, 
-...ingredients
-)
-console.log('Waiting...')
+// const ingredients = ['olives', 'spinach']
+// const pizzaTimer = setTimeout((ing1, ing2) => console.log(`here is your pizza with ${ing1} and ${ing2}`), 
+// 3000, 
+// ...ingredients
+// )
+// console.log('Waiting...')
 
-if(ingredients.includes('spinach')) clearTimeout(pizzaTimer)
+// if(ingredients.includes('spinach')) clearTimeout(pizzaTimer)
 
-//setInterval
-setInterval(function() {
-  const now = new Date()
-  // console.log(now)
-}, 1000) 
+// setInterval
+// setInterval(function() {
+//   const now = new Date()
+//   // console.log(now)
+// }, 1000) 
 
 
 // Internationalizing Numbers (Intl)
