@@ -180,12 +180,15 @@ const updateUI = function(acc) {
 }
 
 const startLogOutTimer = function() {
+
   // set time to 5 minutes 
   let time = 100
   // call the timer every second
   setInterval(function() {
+    const minutes = String(Math.trunc(time / 60)).padStart(2, '0')
+    const seconds = String(time % 60).padStart(2, '0')
     // in each call, print the remaining time to UI
-    labelTimer.textContent = time
+    labelTimer.textContent = `${minutes}:${seconds}`
 
     // decrease 1 second
     time--
