@@ -182,9 +182,9 @@ const updateUI = function(acc) {
 const startLogOutTimer = function() {
 
   // set time to 5 minutes 
-  let time = 100
+  let time = 120
   // call the timer every second
-  setInterval(function() {
+  const timer = setInterval(function() {
     const minutes = String(Math.trunc(time / 60)).padStart(2, '0')
     const seconds = String(time % 60).padStart(2, '0')
     // in each call, print the remaining time to UI
@@ -194,6 +194,11 @@ const startLogOutTimer = function() {
     time--
 
     // when 0 seconds, stop timer and logout user
+    if(time === 0) {
+      clearInterval(timer)
+      labelWelcome.textContent = 'Log in to get started'
+      containerApp.style.opacity = 0
+    }
   }, 1000)
 
 }
@@ -202,9 +207,9 @@ const startLogOutTimer = function() {
 let currentAccount;
 
 // FAKE ALWAYS LOGGED IN
-currentAccount = account1
-updateUI(currentAccount)
-containerApp.style.opacity = 100
+// currentAccount = account1
+// updateUI(currentAccount)
+// containerApp.style.opacity = 100
 
 btnLogin.addEventListener('click', function(e) {
   e.preventDefault()
